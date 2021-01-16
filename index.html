@@ -52,26 +52,20 @@
       data['hash'] = hash;
 
       let result = await axios.post('/data', data);
+
       let op = "";
       if(result['data']['data']!==undefined)
         op+=result['data']['data'];
       if(result['data']['error']!==undefined)
         op+=result['data']['error']
-
-      console.log(op);
         
       output.setValue(op, -1);
     });
 
     let download = document.getElementById('download');
     download.addEventListener('click', async(ev) => {
-      console.log('ok');
-      // axios.get('/download', {
-      //   params: {
-      //     hash:hash 
-      //   }
-      // });
       location.href = `/download?hash=${hash}`;
     });
+    
   </script>
 </html>

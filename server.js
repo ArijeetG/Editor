@@ -17,10 +17,10 @@ app.get('/', (req, res) => {
 
 app.post('/data', (req, res) => {
   let resp = {};
+
   if(!(req.body.hash in mappings))
     cnt+=1;
   mappings[req.body.hash] = cnt;
-  console.log(mappings);
 
   fs.writeFile(`input${cnt}.txt`, req.body.input, err => {
     if(err)
